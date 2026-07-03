@@ -7,36 +7,48 @@ const benefits = [
     icon: "Clock",
     title: "Реакция за 15 минут",
     description: "Отвечаем на заявки быстро. Критичные сбои в 1С и Битрикс решаем в приоритетном порядке.",
+    gradient: "from-amber-400 to-orange-500",
+    glow: "bg-orange-500/20",
   },
   {
     id: 2,
     icon: "ShieldCheck",
     title: "Сертифицированные специалисты",
     description: "Команда с опытом внедрения 1С и Битрикс24 в компаниях разного масштаба — от ИП до холдингов.",
+    gradient: "from-emerald-400 to-teal-500",
+    glow: "bg-emerald-500/20",
   },
   {
     id: 3,
     icon: "FileText",
     title: "Работаем по договору",
     description: "Прозрачные условия, фиксированные тарифы на сопровождение и закрывающие документы.",
+    gradient: "from-blue-400 to-indigo-500",
+    glow: "bg-blue-500/20",
   },
   {
     id: 4,
     icon: "Headphones",
     title: "Персональный менеджер",
     description: "Один ответственный специалист знает вашу инфраструктуру и ведёт задачи от начала до конца.",
+    gradient: "from-fuchsia-400 to-purple-500",
+    glow: "bg-purple-500/20",
   },
   {
     id: 5,
     icon: "TrendingUp",
     title: "Рост эффективности",
     description: "Автоматизируем рутину: учёт, продажи, документооборот. Меньше ручной работы — больше результата.",
+    gradient: "from-rose-400 to-pink-500",
+    glow: "bg-pink-500/20",
   },
   {
     id: 6,
     icon: "RefreshCw",
     title: "Регулярные обновления",
     description: "Следим за релизами, обновляем конфигурации и следим за безопасностью ваших систем.",
+    gradient: "from-cyan-400 to-sky-500",
+    glow: "bg-cyan-500/20",
   },
 ]
 
@@ -58,13 +70,16 @@ export default function Projects() {
         {benefits.map((item) => (
           <div
             key={item.id}
-            className="card p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
+            className="card p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col relative overflow-hidden"
           >
-            <div className="bg-gradient-to-br from-blue-500/15 to-indigo-500/15 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-              <Icon name={item.icon} className="w-6 h-6 text-[#2563eb] dark:text-[#3B82F6]" fallback="Star" />
+            <div className={`absolute -right-8 -top-8 w-28 h-28 rounded-full ${item.glow} blur-2xl pointer-events-none`} />
+            <div
+              className={`bg-gradient-to-br ${item.gradient} w-12 h-12 rounded-xl flex items-center justify-center mb-4 shadow-lg relative z-10`}
+            >
+              <Icon name={item.icon} className="w-6 h-6 text-white" fallback="Star" />
             </div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">{item.title}</h3>
-            <p className="text-slate-600 dark:text-slate-300 text-sm">{item.description}</p>
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 relative z-10">{item.title}</h3>
+            <p className="text-slate-600 dark:text-slate-300 text-sm relative z-10">{item.description}</p>
           </div>
         ))}
       </div>
