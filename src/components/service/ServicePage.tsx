@@ -8,6 +8,7 @@ export interface ServicePageData {
   title: string
   titleAccent: string
   intro: string
+  heroImage: string
   heroPoints: string[]
   features: { icon: string; title: string; description: string }[]
   worksTitle: string
@@ -44,26 +45,37 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
         <section className="card my-6 relative overflow-hidden shadow-md">
           <div className="absolute -right-16 -top-16 w-72 h-72 rounded-full bg-blue-500/20 blur-3xl pointer-events-none" />
           <div className="absolute -left-10 bottom-0 w-56 h-56 rounded-full bg-indigo-500/20 blur-3xl pointer-events-none" />
-          <div className="p-8 md:p-12 lg:p-16 relative z-10 max-w-3xl">
-            <span className="inline-block px-3 py-1 rounded-full glass text-[#2563eb] dark:text-[#3B82F6] text-xs font-semibold mb-4">
-              {data.eyebrow}
-            </span>
-            <h1 className="text-slate-900 dark:text-white text-4xl md:text-5xl font-medium leading-tight">
-              {data.title}
-              <span className={`block ${accent}`}>{data.titleAccent}</span>
-            </h1>
-            <p className="my-6 text-base max-w-lg text-slate-600 dark:text-slate-300">{data.intro}</p>
-            <ul className="space-y-2 mb-6">
-              {data.heroPoints.map((point) => (
-                <li key={point} className="flex items-start gap-2 text-slate-700 dark:text-slate-300">
-                  <Icon name="CircleCheck" className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" fallback="Check" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-            <Link to="/kontakty" className="btn-primary">
-              Оставить заявку
-            </Link>
+          <div className="p-8 md:p-12 lg:p-16 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="inline-block px-3 py-1 rounded-full glass text-[#2563eb] dark:text-[#3B82F6] text-xs font-semibold mb-4">
+                {data.eyebrow}
+              </span>
+              <h1 className="text-slate-900 dark:text-white text-4xl md:text-5xl font-medium leading-tight">
+                {data.title}
+                <span className={`block ${accent}`}>{data.titleAccent}</span>
+              </h1>
+              <p className="my-6 text-base max-w-lg text-slate-600 dark:text-slate-300">{data.intro}</p>
+              <ul className="space-y-2 mb-6">
+                {data.heroPoints.map((point) => (
+                  <li key={point} className="flex items-start gap-2 text-slate-700 dark:text-slate-300">
+                    <Icon name="CircleCheck" className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" fallback="Check" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link to="/kontakty" className="btn-primary">
+                Оставить заявку
+              </Link>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/30 to-indigo-500/30 blur-2xl rounded-3xl" />
+              <img
+                src={data.heroImage}
+                alt={data.title}
+                className="relative w-full rounded-3xl shadow-2xl border border-white/40 dark:border-white/10"
+              />
+            </div>
           </div>
         </section>
 
