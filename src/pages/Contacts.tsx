@@ -41,28 +41,14 @@ export default function Contacts() {
           <span className="text-slate-900 dark:text-white">Контакты</span>
         </nav>
 
-        <section className="card my-8 relative overflow-hidden shadow-md">
-          <div className="absolute -right-16 -top-16 w-72 h-72 rounded-full bg-blue-500/20 blur-3xl pointer-events-none" />
-          <div className="absolute -left-10 bottom-0 w-56 h-56 rounded-full bg-indigo-500/20 blur-3xl pointer-events-none" />
-          <div className="p-8 md:p-12 lg:p-14 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <h1 className="text-slate-900 dark:text-white text-4xl md:text-5xl font-medium leading-tight mb-4">
-                Свяжитесь с <span className={accent}>Omnybox</span>
-              </h1>
-              <p className="max-w-2xl text-slate-600 dark:text-slate-300">
-                Оставьте заявку — проведём бесплатный аудит ваших систем и предложим план автоматизации. Или свяжитесь
-                удобным способом.
-              </p>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/30 to-indigo-500/30 blur-2xl rounded-3xl" />
-              <img
-                src="https://cdn.poehali.dev/projects/fb2a1602-a01f-4a6b-9e2e-c4b982da0b91/files/26c7b147-8dc4-4363-9746-240590c2e8e1.jpg"
-                alt="Свяжитесь с Omnybox"
-                className="relative w-full rounded-3xl shadow-2xl border border-white/40 dark:border-white/10"
-              />
-            </div>
-          </div>
+        <section className="my-8">
+          <h1 className="text-slate-900 dark:text-white text-4xl md:text-5xl font-medium leading-tight mb-4">
+            Свяжитесь с <span className={accent}>Omnybox</span>
+          </h1>
+          <p className="max-w-2xl text-slate-600 dark:text-slate-300">
+            Оставьте заявку — проведём бесплатный аудит ваших систем и предложим план автоматизации. Или свяжитесь удобным
+            способом.
+          </p>
         </section>
 
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-10">
