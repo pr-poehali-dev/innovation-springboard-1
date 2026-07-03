@@ -19,6 +19,15 @@ export interface ServicePageData {
 
 const accent = "text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] to-[#6366f1]"
 
+const iconColors = [
+  { gradient: "from-blue-400 to-indigo-500", glow: "bg-blue-500/20" },
+  { gradient: "from-emerald-400 to-teal-500", glow: "bg-emerald-500/20" },
+  { gradient: "from-fuchsia-400 to-purple-500", glow: "bg-purple-500/20" },
+  { gradient: "from-amber-400 to-orange-500", glow: "bg-orange-500/20" },
+  { gradient: "from-rose-400 to-pink-500", glow: "bg-pink-500/20" },
+  { gradient: "from-cyan-400 to-sky-500", glow: "bg-cyan-500/20" },
+]
+
 export default function ServicePage({ data }: { data: ServicePageData }) {
   return (
     <main className="min-h-screen">
@@ -47,7 +56,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
             <ul className="space-y-2 mb-6">
               {data.heroPoints.map((point) => (
                 <li key={point} className="flex items-start gap-2 text-slate-700 dark:text-slate-300">
-                  <Icon name="CircleCheck" className="w-5 h-5 text-[#2563eb] dark:text-[#3B82F6] mt-0.5 shrink-0" fallback="Check" />
+                  <Icon name="CircleCheck" className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" fallback="Check" />
                   <span>{point}</span>
                 </li>
               ))}
@@ -63,15 +72,24 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
             Что вы <span className={accent}>получаете</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {data.features.map((f) => (
-              <div key={f.title} className="card p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="bg-gradient-to-br from-blue-500/15 to-indigo-500/15 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                  <Icon name={f.icon} className="w-6 h-6 text-[#2563eb] dark:text-[#3B82F6]" fallback="Star" />
+            {data.features.map((f, i) => {
+              const color = iconColors[i % iconColors.length]
+              return (
+                <div
+                  key={f.title}
+                  className="card p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+                >
+                  <div className={`absolute -right-10 -top-10 w-32 h-32 rounded-full ${color.glow} blur-2xl pointer-events-none`} />
+                  <div
+                    className={`bg-gradient-to-br ${color.gradient} w-12 h-12 rounded-xl flex items-center justify-center mb-4 shadow-lg relative z-10`}
+                  >
+                    <Icon name={f.icon} className="w-6 h-6 text-white" fallback="Star" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 relative z-10">{f.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-300 text-sm relative z-10">{f.description}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">{f.title}</h3>
-                <p className="text-slate-600 dark:text-slate-300 text-sm">{f.description}</p>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </section>
 
@@ -83,7 +101,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
               {data.works.map((w) => (
                 <div key={w} className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
-                  <Icon name="CircleCheck" className="w-5 h-5 text-[#2563eb] dark:text-[#3B82F6] mt-0.5 shrink-0" fallback="Check" />
+                  <Icon name="CircleCheck" className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" fallback="Check" />
                   <span>{w}</span>
                 </div>
               ))}
@@ -96,13 +114,21 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
             Как мы <span className={accent}>работаем</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {data.process.map((p) => (
-              <div key={p.step} className="card p-6 shadow-md">
-                <div className="text-4xl font-bold text-[#2563eb]/25 dark:text-[#3B82F6]/30 mb-3">{p.step}</div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">{p.title}</h3>
-                <p className="text-slate-600 dark:text-slate-300 text-sm">{p.description}</p>
-              </div>
-            ))}
+            {data.process.map((p, i) => {
+              const color = iconColors[i % iconColors.length]
+              return (
+                <div key={p.step} className="card p-6 shadow-md relative overflow-hidden">
+                  <div className={`absolute -right-8 -top-8 w-24 h-24 rounded-full ${color.glow} blur-2xl pointer-events-none`} />
+                  <div
+                    className={`text-4xl font-bold bg-gradient-to-br ${color.gradient} text-transparent bg-clip-text mb-3 relative z-10`}
+                  >
+                    {p.step}
+                  </div>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 relative z-10">{p.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-300 text-sm relative z-10">{p.description}</p>
+                </div>
+              )
+            })}
           </div>
         </section>
 
@@ -131,7 +157,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
                 <ul className="space-y-3 mb-8 flex-1">
                   {plan.features.map((feat) => (
                     <li key={feat} className="flex items-start gap-2 text-slate-700 dark:text-slate-300 text-sm">
-                      <Icon name="Check" className="w-4 h-4 text-[#2563eb] dark:text-[#3B82F6] mt-0.5 shrink-0" />
+                      <Icon name="Check" className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
                       <span>{feat}</span>
                     </li>
                   ))}

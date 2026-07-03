@@ -8,10 +8,10 @@ import { useToast } from "@/hooks/use-toast"
 const accent = "text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] to-[#6366f1]"
 
 const contactCards = [
-  { icon: "Phone", title: "Телефон", value: "+7 (900) 000-00-00", href: "tel:+79000000000" },
-  { icon: "Mail", title: "Почта", value: "hello@omnybox.ru", href: "mailto:hello@omnybox.ru" },
-  { icon: "MessageCircle", title: "Telegram", value: "@omnybox", href: "https://t.me/omnybox" },
-  { icon: "Clock", title: "Режим работы", value: "Пн–Пт, 9:00–19:00", href: undefined },
+  { icon: "Phone", title: "Телефон", value: "+7 (900) 000-00-00", href: "tel:+79000000000", gradient: "from-emerald-400 to-teal-500", glow: "bg-emerald-500/20" },
+  { icon: "Mail", title: "Почта", value: "hello@omnybox.ru", href: "mailto:hello@omnybox.ru", gradient: "from-blue-400 to-indigo-500", glow: "bg-blue-500/20" },
+  { icon: "MessageCircle", title: "Telegram", value: "@omnybox", href: "https://t.me/omnybox", gradient: "from-cyan-400 to-sky-500", glow: "bg-cyan-500/20" },
+  { icon: "Clock", title: "Режим работы", value: "Пн–Пт, 9:00–19:00", href: undefined, gradient: "from-amber-400 to-orange-500", glow: "bg-orange-500/20" },
 ]
 
 const services = ["1С Предприятие", "Битрикс24 CRM", "Разработка сайтов", "Другое"]
@@ -119,12 +119,15 @@ export default function Contacts() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {contactCards.map((c) => {
                 const inner = (
-                  <div className="card p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
-                    <div className="bg-gradient-to-br from-blue-500/15 to-indigo-500/15 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                      <Icon name={c.icon} className="w-6 h-6 text-[#2563eb] dark:text-[#3B82F6]" fallback="Info" />
+                  <div className="card p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full relative overflow-hidden">
+                    <div className={`absolute -right-8 -top-8 w-24 h-24 rounded-full ${c.glow} blur-2xl pointer-events-none`} />
+                    <div
+                      className={`bg-gradient-to-br ${c.gradient} w-12 h-12 rounded-xl flex items-center justify-center mb-4 shadow-lg relative z-10`}
+                    >
+                      <Icon name={c.icon} className="w-6 h-6 text-white" fallback="Info" />
                     </div>
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{c.title}</div>
-                    <div className="font-semibold text-slate-900 dark:text-white mt-1">{c.value}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400 relative z-10">{c.title}</div>
+                    <div className="font-semibold text-slate-900 dark:text-white mt-1 relative z-10">{c.value}</div>
                   </div>
                 )
                 return c.href ? (
