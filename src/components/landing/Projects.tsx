@@ -1,69 +1,74 @@
-import { ArrowUpRight } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
-const projects = [
+const benefits = [
   {
     id: 1,
-    slug: "ai-analytics-dashboard",
-    title: "AI Аналитика",
-    shortDescription: "Платформа бизнес-аналитики в реальном времени на базе машинного обучения",
-    mainImage: "/portfolio-images/saas-dashboard-1.jpg",
+    icon: "Clock",
+    title: "Реакция за 15 минут",
+    description: "Отвечаем на заявки быстро. Критичные сбои в 1С и Битрикс решаем в приоритетном порядке.",
   },
   {
     id: 2,
-    slug: "smart-automation-suite",
-    title: "Умная автоматизация",
-    shortDescription: "Комплексная автоматизация рабочих процессов с AI-принятием решений",
-    mainImage: "/portfolio-images/ecommerce-interface-1.jpg",
+    icon: "ShieldCheck",
+    title: "Сертифицированные специалисты",
+    description: "Команда с опытом внедрения 1С и Битрикс24 в компаниях разного масштаба — от ИП до холдингов.",
   },
   {
     id: 3,
-    slug: "neural-commerce-platform",
-    title: "Neural Commerce",
-    shortDescription: "E-commerce платформа нового поколения с персонализированными AI-рекомендациями",
-    mainImage: "/portfolio-images/ai-platform-1.jpg",
+    icon: "FileText",
+    title: "Работаем по договору",
+    description: "Прозрачные условия, фиксированные тарифы на сопровождение и закрывающие документы.",
+  },
+  {
+    id: 4,
+    icon: "Headphones",
+    title: "Персональный менеджер",
+    description: "Один ответственный специалист знает вашу инфраструктуру и ведёт задачи от начала до конца.",
+  },
+  {
+    id: 5,
+    icon: "TrendingUp",
+    title: "Рост эффективности",
+    description: "Автоматизируем рутину: учёт, продажи, документооборот. Меньше ручной работы — больше результата.",
+  },
+  {
+    id: 6,
+    icon: "RefreshCw",
+    title: "Регулярные обновления",
+    description: "Следим за релизами, обновляем конфигурации и следим за безопасностью ваших систем.",
   },
 ]
 
 export default function Projects() {
   return (
-    <section id="projects" className="my-20">
+    <section id="benefits" className="my-20">
       <h2 className="text-black dark:text-white mb-6 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
-        Наши последние
-        <span className="block text-[#7A7FEE] dark:text-[#7A7FEE]">проекты</span>
+        Почему выбирают
+        <span className="block text-[#7A7FEE] dark:text-[#7A7FEE]">именно нас</span>
       </h2>
       <p className="mb-12 max-w-2xl text-gray-700 dark:text-gray-300">
-        От AI-автоматизации до кастомных маркетплейсов — наши решения помогают бизнесу масштабироваться эффективнее.
-        Изучите платформы, инструменты и решения, которые мы создали для наших клиентов.
+        Мы отвечаем за результат, а не за часы. Наводим порядок в системах учёта и продаж, чтобы ваш бизнес работал
+        стабильно и без простоев.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {projects.map((project) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {benefits.map((item) => (
           <div
-            key={project.slug}
-            className="card overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] cursor-pointer"
+            key={item.id}
+            className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col"
           >
-            <div className="relative overflow-hidden">
-              <img
-                src={project.mainImage}
-                alt={project.title}
-                className="w-full h-48 object-cover"
-              />
+            <div className="bg-[#7A7FEE]/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+              <Icon name={item.icon} className="w-6 h-6 text-[#7A7FEE]" fallback="Star" />
             </div>
-            <div className="p-4 md:p-6">
-              <h3 className="text-xl font-semibold text-black dark:text-white">{project.title}</h3>
-              <p className="text-gray-700 dark:text-gray-300 text-sm mt-1 mb-4">{project.shortDescription}</p>
-              <div className="inline-flex items-center text-[#7A7FEE] text-sm font-medium group">
-                Подробнее{" "}
-                <ArrowUpRight className="w-4 h-4 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </div>
-            </div>
+            <h3 className="text-lg font-semibold text-black dark:text-white mb-2">{item.title}</h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">{item.description}</p>
           </div>
         ))}
       </div>
 
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-10">
         <a href="#contact" className="btn-primary">
-          Все проекты
+          Получить консультацию
         </a>
       </div>
     </section>

@@ -5,6 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { ThemeProvider } from "next-themes"
 import Index from "./pages/Index"
+import Service1C from "./pages/Service1C"
+import ServiceBitrix24 from "./pages/ServiceBitrix24"
+import ServiceSites from "./pages/ServiceSites"
 import NotFound from "./pages/NotFound"
 
 const queryClient = new QueryClient()
@@ -18,6 +21,9 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/uslugi/1c" element={<Service1C />} />
+            <Route path="/uslugi/bitrix24-crm" element={<ServiceBitrix24 />} />
+            <Route path="/uslugi/razrabotka-saitov" element={<ServiceSites />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

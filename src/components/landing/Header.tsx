@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
+import { Link } from "react-router-dom"
 import ThemeToggle from "./ThemeToggle"
 import { useTheme } from "next-themes"
 
@@ -37,34 +38,42 @@ export default function Header() {
       >
         <div className="container py-4">
           <div className="flex items-center justify-between">
-            <a href="#" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <span className="text-2xl font-bold text-black dark:text-white">
-                Neural<span className="text-[#7A7FEE]">Works</span>
+                АйТи<span className="text-[#7A7FEE]">Партнёр</span>
               </span>
-            </a>
+            </Link>
 
             <div className="flex items-center space-x-4">
               <nav className="hidden md:block">
                 <ul className="flex space-x-6">
                   <li>
-                    <a
-                      href="#projects"
+                    <Link
+                      to="/uslugi/1c"
                       className="text-black dark:text-white hover:text-[#7A7FEE] dark:hover:text-[#7A7FEE] transition-colors"
                     >
-                      Проекты
-                    </a>
+                      1С
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/uslugi/bitrix24-crm"
+                      className="text-black dark:text-white hover:text-[#7A7FEE] dark:hover:text-[#7A7FEE] transition-colors"
+                    >
+                      Битрикс24
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/uslugi/razrabotka-saitov"
+                      className="text-black dark:text-white hover:text-[#7A7FEE] dark:hover:text-[#7A7FEE] transition-colors"
+                    >
+                      Сайты
+                    </Link>
                   </li>
                   <li>
                     <a
-                      href="#services"
-                      className="text-black dark:text-white hover:text-[#7A7FEE] dark:hover:text-[#7A7FEE] transition-colors"
-                    >
-                      Услуги
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#faq"
+                      href="/#faq"
                       className="text-black dark:text-white hover:text-[#7A7FEE] dark:hover:text-[#7A7FEE] transition-colors"
                     >
                       Вопросы
@@ -72,7 +81,7 @@ export default function Header() {
                   </li>
                   <li>
                     <a
-                      href="#contact"
+                      href="/#contact"
                       className="text-black dark:text-white hover:text-[#7A7FEE] dark:hover:text-[#7A7FEE] transition-colors"
                     >
                       Контакты
@@ -100,7 +109,7 @@ export default function Header() {
           <div className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white dark:bg-[#111111] shadow-xl overflow-y-auto">
             <div className="sticky top-0 z-10 flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111111]">
               <span className="text-xl font-bold text-black dark:text-white">
-                Neural<span className="text-[#7A7FEE]">Works</span>
+                АйТи<span className="text-[#7A7FEE]">Партнёр</span>
               </span>
               <button
                 onClick={() => setMobileMenuOpen(false)}
@@ -114,35 +123,44 @@ export default function Header() {
             <nav className="p-4">
               <ul className="space-y-1">
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/"
                     className="flex items-center py-3 px-4 rounded-lg text-base text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Главная
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#projects"
+                  <Link
+                    to="/uslugi/1c"
                     className="flex items-center py-3 px-4 rounded-lg text-base text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Проекты
-                  </a>
+                    1С Предприятие
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#services"
+                  <Link
+                    to="/uslugi/bitrix24-crm"
                     className="flex items-center py-3 px-4 rounded-lg text-base text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Услуги
-                  </a>
+                    Битрикс24 CRM
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/uslugi/razrabotka-saitov"
+                    className="flex items-center py-3 px-4 rounded-lg text-base text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Разработка сайтов
+                  </Link>
                 </li>
                 <li>
                   <a
-                    href="#faq"
+                    href="/#faq"
                     className="flex items-center py-3 px-4 rounded-lg text-base text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -154,7 +172,7 @@ export default function Header() {
 
             <div className="p-4 mt-4 border-t border-gray-200 dark:border-gray-800">
               <a
-                href="#contact"
+                href="/#contact"
                 className="flex items-center justify-center w-full py-3 px-4 bg-[#7A7FEE] text-white rounded-lg text-base font-medium hover:bg-opacity-90 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >

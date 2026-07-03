@@ -6,16 +6,16 @@ export default function CallToAction() {
       <div className="p-8 md:p-10 lg:p-12 flex flex-col md:flex-row items-start">
         <div className="w-full md:w-3/5 z-10">
           <h2 className="text-black dark:text-white mb-6 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
-            Ваша следующая идея <span className="text-[#7A7FEE] dark:text-[#7A7FEE]">начинается</span> здесь
+            Наведём порядок в <span className="text-[#7A7FEE] dark:text-[#7A7FEE]">ваших системах</span>
           </h2>
           <p className="my-6 text-sm md:text-base max-w-md text-gray-700 dark:text-gray-300">
-            Есть идея или проблема, которую нужно решить?
+            Есть вопросы по 1С, Битрикс24 или разработке сайта?
           </p>
           <p className="mb-6 text-sm md:text-base max-w-md text-gray-700 dark:text-gray-300">
-            Давайте обсудим. Мы поможем найти лучший подход, составить план и понять, подходим ли мы друг другу.
+            Оставьте заявку — проведём бесплатный аудит, покажем узкие места и предложим план автоматизации под ваш бизнес.
           </p>
           <div>
-            <ContactFormButton />
+            <ContactFormButton>Оставить заявку</ContactFormButton>
           </div>
         </div>
 

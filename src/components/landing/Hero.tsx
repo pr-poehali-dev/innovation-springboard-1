@@ -6,17 +6,17 @@ export default function Hero() {
       <div className="p-8 md:p-10 lg:p-12 flex flex-col md:flex-row items-start">
         <div className="w-full md:w-3/5 z-10">
           <h1 className="text-black dark:text-white text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
-            Ваш AI-партнер
-            <span className="block text-[#7A7FEE] dark:text-[#7A7FEE]">в разработке</span>
-            проектов
+            Автоматизация
+            <span className="block text-[#7A7FEE] dark:text-[#7A7FEE]">бизнеса</span>
+            под ключ
           </h1>
           <p className="my-6 text-sm md:text-base max-w-md text-gray-700 dark:text-gray-300">
-            Мы создаем качественные масштабируемые платформы — клиентские порталы, маркетплейсы, AI-автоматизации и SaaS — используя лучшие инструменты без компромиссов.
+            Обслуживание и сопровождение 1С, внедрение и настройка Битрикс24 CRM, разработка сайтов на 1С-Битрикс. Наводим порядок в учёте, продажах и процессах — чтобы бизнес работал быстрее и прозрачнее.
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <ContactFormButton />
+            <ContactFormButton>Оставить заявку</ContactFormButton>
             <a href="#services" className="btn-secondary text-black dark:text-white">
-              Узнать больше
+              Наши услуги
             </a>
           </div>
         </div>
