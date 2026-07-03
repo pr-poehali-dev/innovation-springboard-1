@@ -1,30 +1,30 @@
-import ContactFormButton from "./ContactFormButton"
+import { Link } from "react-router-dom"
+import Icon from "@/components/ui/icon"
 
 export default function CallToAction() {
   return (
     <section id="contact" className="card my-20 relative overflow-hidden shadow-md">
-      <div className="p-8 md:p-10 lg:p-12 flex flex-col md:flex-row items-start">
-        <div className="w-full md:w-3/5 z-10">
-          <h2 className="text-black dark:text-white mb-6 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
-            Наведём порядок в <span className="text-[#7A7FEE] dark:text-[#7A7FEE]">ваших системах</span>
-          </h2>
-          <p className="my-6 text-sm md:text-base max-w-md text-gray-700 dark:text-gray-300">
-            Есть вопросы по 1С, Битрикс24 или разработке сайта?
-          </p>
-          <p className="mb-6 text-sm md:text-base max-w-md text-gray-700 dark:text-gray-300">
-            Оставьте заявку — проведём бесплатный аудит, покажем узкие места и предложим план автоматизации под ваш бизнес.
-          </p>
-          <div>
-            <ContactFormButton>Оставить заявку</ContactFormButton>
-          </div>
-        </div>
-
-        <div className="hidden md:block md:w-2/5 md:absolute md:right-0 md:top-0 md:bottom-0 md:flex md:items-center">
-          <img
-            src="/purple-circle-wave-static.png"
-            alt="Purple Wave"
-            className="w-full h-auto md:h-full md:w-auto md:object-cover md:object-left"
-          />
+      <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-blue-500/20 blur-3xl pointer-events-none" />
+      <div className="absolute -left-16 -top-16 w-64 h-64 rounded-full bg-violet-500/20 blur-3xl pointer-events-none" />
+      <div className="p-8 md:p-12 lg:p-16 relative z-10 max-w-2xl">
+        <h2 className="text-slate-900 dark:text-white mb-6 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
+          Наведём порядок в{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] to-[#6366f1]">
+            ваших системах
+          </span>
+        </h2>
+        <p className="mb-8 text-base text-slate-600 dark:text-slate-300">
+          Оставьте заявку — проведём бесплатный аудит, покажем узкие места и предложим план автоматизации под ваш бизнес.
+        </p>
+        <div className="flex flex-wrap items-center gap-4">
+          <Link to="/kontakty" className="btn-primary inline-flex items-center gap-2">
+            Оставить заявку
+            <Icon name="ArrowRight" className="w-4 h-4" />
+          </Link>
+          <a href="tel:+79000000000" className="btn-secondary inline-flex items-center gap-2 text-slate-900 dark:text-white">
+            <Icon name="Phone" className="w-4 h-4" />
+            +7 (900) 000-00-00
+          </a>
         </div>
       </div>
     </section>

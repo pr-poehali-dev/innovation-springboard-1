@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 
 const benefits = [
@@ -42,11 +43,13 @@ const benefits = [
 export default function Projects() {
   return (
     <section id="benefits" className="my-20">
-      <h2 className="text-black dark:text-white mb-6 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
+      <h2 className="text-slate-900 dark:text-white mb-6 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
         Почему выбирают
-        <span className="block text-[#7A7FEE] dark:text-[#7A7FEE]">именно нас</span>
+        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] to-[#6366f1]">
+          именно нас
+        </span>
       </h2>
-      <p className="mb-12 max-w-2xl text-gray-700 dark:text-gray-300">
+      <p className="mb-12 max-w-2xl text-slate-600 dark:text-slate-300">
         Мы отвечаем за результат, а не за часы. Наводим порядок в системах учёта и продаж, чтобы ваш бизнес работал
         стабильно и без простоев.
       </p>
@@ -55,21 +58,21 @@ export default function Projects() {
         {benefits.map((item) => (
           <div
             key={item.id}
-            className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col"
+            className="card p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
           >
-            <div className="bg-[#7A7FEE]/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-              <Icon name={item.icon} className="w-6 h-6 text-[#7A7FEE]" fallback="Star" />
+            <div className="bg-gradient-to-br from-blue-500/15 to-indigo-500/15 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+              <Icon name={item.icon} className="w-6 h-6 text-[#2563eb] dark:text-[#3B82F6]" fallback="Star" />
             </div>
-            <h3 className="text-lg font-semibold text-black dark:text-white mb-2">{item.title}</h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">{item.description}</p>
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">{item.title}</h3>
+            <p className="text-slate-600 dark:text-slate-300 text-sm">{item.description}</p>
           </div>
         ))}
       </div>
 
       <div className="flex justify-center mt-10">
-        <a href="#contact" className="btn-primary">
+        <Link to="/kontakty" className="btn-primary">
           Получить консультацию
-        </a>
+        </Link>
       </div>
     </section>
   )

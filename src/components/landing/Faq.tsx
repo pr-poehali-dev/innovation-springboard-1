@@ -50,31 +50,33 @@ export default function Faq() {
   return (
     <section id="faq" className="my-20">
       <div className="card p-8 md:p-10 shadow-lg">
-        <h2 className="text-black dark:text-white mb-6 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
+        <h2 className="text-slate-900 dark:text-white mb-6 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
           Частые
-          <span className="block text-[#7A7FEE] dark:text-[#7A7FEE]">вопросы</span>
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] to-[#6366f1]">
+            вопросы
+          </span>
         </h2>
-        <p className="mb-8 max-w-2xl text-gray-700 dark:text-gray-300">
+        <p className="mb-8 max-w-2xl text-slate-600 dark:text-slate-300">
           Есть вопросы о наших услугах? Найдите ответы на самые распространенные вопросы и узнайте, как наша команда
           может помочь в реализации вашего проекта.
         </p>
 
         <div className="space-y-4">
           {faqs.map((faq) => (
-            <div key={faq.id} className="border-b pb-4 border-gray-300 dark:border-gray-700">
+            <div key={faq.id} className="border-b pb-4 border-slate-200 dark:border-white/10">
               <button
                 onClick={() => toggleItem(faq.id)}
-                className="flex justify-between items-center w-full text-left py-2 font-medium text-black dark:text-white hover:text-[#7A7FEE] dark:hover:text-[#7A7FEE] transition-colors"
+                className="flex justify-between items-center w-full text-left py-2 font-medium text-slate-900 dark:text-white hover:text-[#2563eb] dark:hover:text-[#3B82F6] transition-colors"
                 aria-expanded={openItem === faq.id}
                 aria-controls={`faq-answer-${faq.id}`}
               >
                 <span className="font-medium">{faq.question}</span>
                 <ChevronDown
-                  className={`w-5 h-5 transition-transform ${openItem === faq.id ? "rotate-180 text-[#7A7FEE]" : ""}`}
+                  className={`w-5 h-5 transition-transform ${openItem === faq.id ? "rotate-180 text-[#2563eb] dark:text-[#3B82F6]" : ""}`}
                 />
               </button>
               {openItem === faq.id && (
-                <div id={`faq-answer-${faq.id}`} className="mt-2 text-gray-700 dark:text-gray-300">
+                <div id={`faq-answer-${faq.id}`} className="mt-2 text-slate-600 dark:text-slate-300">
                   {faq.answer}
                 </div>
               )}
