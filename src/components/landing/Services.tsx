@@ -12,6 +12,7 @@ const services = [
     link: "/uslugi/1c",
     gradient: "from-blue-500 to-indigo-500",
     glow: "bg-blue-500/25",
+    image: "https://cdn.poehali.dev/projects/fb2a1602-a01f-4a6b-9e2e-c4b982da0b91/files/f944fdc7-39e5-4b0b-9c11-daa57dbc251c.jpg",
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ const services = [
     link: "/uslugi/bitrix24-crm",
     gradient: "from-emerald-500 to-teal-500",
     glow: "bg-emerald-500/25",
+    image: "https://cdn.poehali.dev/projects/fb2a1602-a01f-4a6b-9e2e-c4b982da0b91/files/e01734b4-579c-4c38-bf42-a3d7f9ed4c77.jpg",
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ const services = [
     link: "/uslugi/razrabotka-saitov",
     gradient: "from-fuchsia-500 to-pink-500",
     glow: "bg-fuchsia-500/25",
+    image: "https://cdn.poehali.dev/projects/fb2a1602-a01f-4a6b-9e2e-c4b982da0b91/files/76973506-90dc-432d-a2c8-4e7f99a9a830.jpg",
   },
 ]
 
@@ -56,25 +59,34 @@ export default function Services() {
           <Link
             to={service.link}
             key={service.id}
-            className="card p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col relative overflow-hidden"
+            className="card shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col relative overflow-hidden"
           >
-            <div className={`absolute -right-10 -top-10 w-32 h-32 rounded-full ${service.glow} blur-2xl pointer-events-none`} />
-            <div
-              className={`bg-gradient-to-br ${service.gradient} w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg relative z-10`}
-            >
-              <Icon name={service.icon} className="w-7 h-7 text-white" fallback="Zap" />
+            <div className="relative h-44 overflow-hidden">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/10 to-transparent dark:from-slate-900/90" />
+              <div
+                className={`bg-gradient-to-br ${service.gradient} w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg absolute bottom-4 left-6 z-10`}
+              >
+                <Icon name={service.icon} className="w-7 h-7 text-white" fallback="Zap" />
+              </div>
             </div>
-            <h3 className="text-xl font-semibold mb-1 text-slate-900 dark:text-white relative z-10">{service.title}</h3>
-            <p
-              className={`text-sm font-medium mb-3 bg-gradient-to-r ${service.gradient} text-transparent bg-clip-text relative z-10`}
-            >
-              {service.subtitle}
-            </p>
-            <p className="text-slate-600 dark:text-slate-300 mb-5 flex-1 relative z-10">{service.description}</p>
-            <span className="inline-flex items-center text-[#2563eb] dark:text-[#3B82F6] text-sm font-medium relative z-10">
-              Подробнее об услуге
-              <Icon name="ArrowRight" className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-            </span>
+            <div className="p-8 pt-5 flex flex-col flex-1">
+              <h3 className="text-xl font-semibold mb-1 text-slate-900 dark:text-white">{service.title}</h3>
+              <p
+                className={`text-sm font-medium mb-3 bg-gradient-to-r ${service.gradient} text-transparent bg-clip-text`}
+              >
+                {service.subtitle}
+              </p>
+              <p className="text-slate-600 dark:text-slate-300 mb-5 flex-1">{service.description}</p>
+              <span className="inline-flex items-center text-[#2563eb] dark:text-[#3B82F6] text-sm font-medium">
+                Подробнее об услуге
+                <Icon name="ArrowRight" className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </div>
           </Link>
         ))}
       </div>

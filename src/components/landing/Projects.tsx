@@ -61,10 +61,25 @@ export default function Projects() {
           именно нас
         </span>
       </h2>
-      <p className="mb-12 max-w-2xl text-slate-600 dark:text-slate-300">
+      <p className="mb-8 max-w-2xl text-slate-600 dark:text-slate-300">
         Мы отвечаем за результат, а не за часы. Наводим порядок в системах учёта и продаж, чтобы ваш бизнес работал
         стабильно и без простоев.
       </p>
+
+      <div className="relative rounded-3xl overflow-hidden mb-8 h-64 md:h-80 shadow-md">
+        <img
+          src="https://cdn.poehali.dev/projects/fb2a1602-a01f-4a6b-9e2e-c4b982da0b91/files/05f605a1-ad65-41db-a7c8-7bf9a33eb699.jpg"
+          alt="Наша команда за работой"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2563eb]/80 via-[#2563eb]/40 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-center p-8 md:p-12 max-w-lg">
+          <p className="text-white/90 text-sm font-medium mb-2">Команда Omnybox</p>
+          <p className="text-white text-2xl md:text-3xl font-medium leading-snug">
+            Более 10 лет наводим порядок в 1С и Битрикс для бизнеса
+          </p>
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {benefits.map((item) => (
